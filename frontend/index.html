@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeneaFlow</title>
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Colores principales */
+        --color-primary: #111827;
+        --color-accent: #2563eb;
+        --color-bg: #ffffff;
+        --color-muted: #f3f4f6;
+        --color-border: #e5e7eb;
+        --color-text: #111827;
+        
+        /* Spacing y dimensiones */
+        --space: 0.5rem;
+        --space-sm: 0.75rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        
+        /* Border radius moderno */
+        --radius: 0.55rem;
+        --radius-sm: 0.5rem;
+        --radius-md: 0.75rem;
+        --radius-lg: 1rem;
+        
+        /* Transiciones */
+        --transition: all 0.15s ease-in-out;
+        --transition-fast: all 0.1s ease-in-out;
+        
+        /* Colores semánticos */
+        --color-error: #b91c1c;
+        --color-error-light: #fef2f2;
+        --color-text-muted: #6b7280;
+        --color-text-secondary: #9ca3af;
+        --color-border-light: #e5e7eb;
+        --color-border-medium: #d1d5db;
+        --color-focus: #2563eb;
+        --color-focus-light: #dbeafe;
+        --color-success: #059669;
+        --color-warning: #d97706;
+      }
+      
+      /* Reset y base */
+      html, body, #app { 
+        height: 100%; 
+        margin: 0; 
+        background: var(--color-bg); 
+        color: var(--color-text); 
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Botón principal modernizado */
+      .btn-primary { 
+        background: var(--color-accent); 
+        color: white; 
+        padding: 0.875rem 1.75rem; 
+        border-radius: var(--radius-sm); 
+        border: none; 
+        cursor: pointer; 
+        transition: var(--transition);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      
+      .btn-primary:hover:not(:disabled) { 
+        background: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn-primary:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn-primary:disabled {
+        background: var(--color-text-secondary);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+      
+      /* Contenedor principal */
+      .container { 
+        max-width: 1100px; 
+        margin: 0 auto; 
+        padding: var(--space-xl); 
+        box-sizing: border-box;
+      }
+      
+      /* Card modernizada */
+      .card { 
+        background: #fff; 
+        border: 1px solid var(--color-border-light); 
+        border-radius: var(--radius); 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1);
+        padding: var(--space-xl);
+        box-sizing: border-box;
+        transition: var(--transition);
+      }
+      
+      .card:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+        transform: translateY(-2px);
+      }
+      
+      /* Inputs modernizados */
+      input { 
+        background: #fff; 
+        border: 1px solid var(--color-border-medium);
+        border-radius: var(--radius-sm);
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        transition: var(--transition);
+        box-sizing: border-box;
+      }
+      
+      input:focus {
+        outline: none;
+        border-color: var(--color-focus);
+        box-shadow: 0 0 0 3px var(--color-focus-light);
+      }
+      
+      /* Enlaces modernizados */
+      a { 
+        color: var(--color-accent); 
+        text-decoration: none; 
+        transition: var(--transition);
+      }
+      
+      a:hover {
+        color: #1d4ed8;
+        text-decoration: underline;
+      }
+      
+      /* Header modernizado */
+      header { 
+        background: #fff; 
+        border-bottom: 1px solid var(--color-border-light);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      
+      /* Utilidades adicionales */
+      .btn-secondary {
+        background: transparent;
+        color: var(--color-accent);
+        border: 1px solid var(--color-accent);
+        padding: 0.875rem 1.75rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      
+      .btn-secondary:hover:not(:disabled) {
+        background: var(--color-accent);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .text-muted {
+        color: var(--color-text-muted);
+      }
+      
+      .text-secondary {
+        color: var(--color-text-secondary);
+      }
+      
+      .text-error {
+        color: var(--color-error);
+      }
+      
+      .text-success {
+        color: var(--color-success);
+      }
+      
+      .text-warning {
+        color: var(--color-warning);
+      }
+      
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-bg: #111827;
+          --color-text: #f9fafb;
+          --color-border: #374151;
+          --color-border-light: #374151;
+          --color-border-medium: #4b5563;
+          --color-text-muted: #d1d5db;
+          --color-text-secondary: #9ca3af;
+        }
+        
+        .card {
+          background: #1f2937;
+          border-color: #374151;
+        }
+        
+        input {
+          background: #374151;
+          border-color: #4b5563;
+          color: #f9fafb;
+        }
+        
+        input:focus {
+          background: #374151;
+        }
+        
+        header {
+          background: #1f2937;
+          border-color: #374151;
+        }
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: var(--space-lg);
+        }
+        
+        .card {
+          padding: var(--space-lg);
+        }
+        
+        .btn-primary,
+        .btn-secondary {
+          padding: 0.75rem 1.5rem;
+          font-size: 0.875rem;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: var(--space-md);
+        }
+        
+        .card {
+          padding: var(--space-md);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

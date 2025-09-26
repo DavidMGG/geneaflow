@@ -1,0 +1,67 @@
+{
+  "tree": {
+    "id": "T1",
+    "name": "Familia Ejemplo",
+    "description": "Mock de 5 personas"
+  },
+  "persons": [
+    {
+      "id": "P1",
+      "displayName": "Juan Pérez",
+      "givenNames": ["Juan"],
+      "familyNames": ["Pérez"],
+      "sex": "M",
+      "birth": { "date": "1975" },
+      "fatherId": null,
+      "motherId": "P5",
+      "partners": ["P2"],
+      "notes": "Padre de Ana y Carlos"
+    },
+    {
+      "id": "P2",
+      "displayName": "María López",
+      "givenNames": ["María"],
+      "familyNames": ["López"],
+      "sex": "F",
+      "birth": { "date": "1977" },
+      "fatherId": null,
+      "motherId": null,
+      "partners": ["P1"],
+      "notes": "Madre de Ana y Carlos"
+    },
+    {
+      "id": "P3",
+      "displayName": "Ana Pérez López",
+      "givenNames": ["Ana"],
+      "familyNames": ["Pérez", "López"],
+      "sex": "F",
+      "birth": { "date": "2000" },
+      "fatherId": "P1",
+      "motherId": "P2",
+      "partners": []
+    },
+    {
+      "id": "P4",
+      "displayName": "Carlos Pérez López",
+      "givenNames": ["Carlos"],
+      "familyNames": ["Pérez", "López"],
+      "sex": "M",
+      "birth": { "date": "2003" },
+      "fatherId": "P1",
+      "motherId": "P2",
+      "partners": []
+    },
+    {
+      "id": "P5",
+      "displayName": "Rosa García",
+      "givenNames": ["Rosa"],
+      "familyNames": ["García"],
+      "sex": "F",
+      "birth": { "date": "1950" },
+      "fatherId": null,
+      "motherId": null,
+      "partners": [],
+      "notes": "Madre de Juan"
+    }
+  ]
+}
