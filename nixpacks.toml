@@ -3,9 +3,9 @@ nixPkgs = ["nodejs_22", "npm-9_x"]
 
 [phases.install]
 cmds = [
-  "npm ci",
-  "cd /app/backend && npm ci",
-  "cd /app/frontend && npm ci"
+  "npm ci && chmod +x node_modules/.bin/*",
+  "cd /app/backend && npm ci && chmod +x node_modules/.bin/*",
+  "cd /app/frontend && npm ci && chmod +x node_modules/.bin/*"
 ]
 
 [phases.build]
