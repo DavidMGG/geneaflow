@@ -7,7 +7,7 @@ require("dotenv/config");
 const mongoose_1 = __importDefault(require("mongoose"));
 const index_1 = require("./index");
 const port = Number(process.env.PORT || 4000);
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/geneaflow';
+const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/geneaflow';
 async function start() {
     try {
         await mongoose_1.default.connect(mongoUri);

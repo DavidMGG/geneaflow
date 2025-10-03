@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { mountApi } from './index';
 
 const port = Number(process.env.PORT || 4000);
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/geneaflow';
+const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI || 'mongodb://localhost:27017/geneaflow';
 
 async function start() {
 	try {
