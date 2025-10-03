@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { getCookie } from './utils/cookies';
 
-export const api = axios.create({ baseURL: 'http://localhost:4000/api' });
+const baseURL = import.meta.env.PROD 
+  ? '/api'  // En producción, usar rutas relativas (mismo dominio)
+  : 'http://localhost:4000/api';  // En desarrollo, usar localhost
+
+export const api = axios.create({ baseURL });
 
 // Interceptor para agregar el token de autorización
 api.interceptors.request.use((config) => {
