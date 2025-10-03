@@ -1,17 +1,20 @@
 {
-  "dependencies": {
-    "@vueuse/core": "^13.9.0",
-    "axios": "^1.11.0",
-    "pinia": "^3.0.3",
-    "vue-router": "^4.5.1"
+  "name": "geneaflow",
+  "version": "1.0.0",
+  "description": "Sistema de genealogía con frontend Vue.js y backend Node.js",
+  "main": "backend/dist/server.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/cookie-parser": "^1.4.9",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/morgan": "^1.9.10",
-    "@types/node": "^24.5.2"
+    "concurrently": "^8.2.2"
   }
 }
