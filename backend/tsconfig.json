@@ -9,9 +9,8 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "resolveJsonModule": true,
-    "types": ["node"]
+    "rootDir": "backend/src",
+    "resolveJsonModule": true
   },
-  "include": ["src"]
+  "include": ["backend/src"]
 }
