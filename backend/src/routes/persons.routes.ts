@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
 		
 		const person = await PersonModel.create(personData);
 		res.status(201).json({ id: person.id });
-	} catch (error) {
+	} catch (error: any) {
 		console.error('Error creando persona:', error);
 		res.status(400).json({ message: error.message || 'Error al crear persona' });
 	}
@@ -79,7 +79,7 @@ router.put('/:personId', async (req, res) => {
 		const person = await PersonModel.findOneAndUpdate({ _id: personId, treeId, softDeleted: { $ne: true } }, req.body, { new: true });
 		if (!person) return res.status(404).json({ message: 'No encontrado' });
 		res.json(person);
-	} catch (error) {
+	} catch (error: any) {
 		console.error('Error actualizando persona:', error);
 		res.status(400).json({ message: error.message || 'Error al actualizar persona' });
 	}

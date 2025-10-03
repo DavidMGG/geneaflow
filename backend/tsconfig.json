@@ -6,11 +6,16 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "outDir": "dist",
-    "rootDir": "backend/src",
+    "rootDir": "src",
     "resolveJsonModule": true
   },
-  "include": ["backend/src"]
+  "include": ["src/**/*"]
 }

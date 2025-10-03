@@ -75,10 +75,11 @@ router.post('/logout', async (req, res) => {
 async function issueTokens(userId: string, req: any) {
 	const jti = randomUUID();
 	await SessionModel.create({ userId, jti, userAgent: req.headers['user-agent'] || '', ip: req.ip || '' });
-	const accessToken = jwt.sign({ sub: userId }, process.env.JWT_SECRET || 'dev', {
+	const jwtSecret = process.env.JWT_SECRET || 'dev';
+	const accessToken = jwt.sign({ sub: userId }, jwtSecret, {
 		expiresIn: process.env.JWT_ACCESS_TTL || '15m',
 	});
-	const refreshToken = jwt.sign({ sub: userId, type: 'refresh', jti }, process.env.JWT_SECRET || 'dev', {
+	const refreshToken = jwt.sign({ sub: userId, type: 'refresh', jti }, jwtSecret, {
 		expiresIn: process.env.JWT_REFRESH_TTL || '30d',
 	});
 	return { accessToken, refreshToken };

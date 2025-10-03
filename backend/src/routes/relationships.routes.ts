@@ -47,10 +47,10 @@ router.post('/', async (req, res) => {
 			}
 			
 			// Validar que el padre no tenga hijos antes de su nacimiento
-			validateParentAgeBeforeChild(parent.birth?.date, child.birth?.date);
+			validateParentAgeBeforeChild(parent.birth?.date || undefined, child.birth?.date || undefined);
 			
 			// Validar que el hijo no sea mayor que el padre
-			validateChildNotOlderThanParent(parent.birth?.date, child.birth?.date);
+			validateChildNotOlderThanParent(parent.birth?.date || undefined, child.birth?.date || undefined);
 
 			// Asignar padre/madre en el registro del hijo
 			if (!child.fatherId) {
