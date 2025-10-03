@@ -4,15 +4,15 @@ nixPkgs = ["nodejs_22", "npm-9_x"]
 [phases.install]
 cmds = [
   "npm ci",
-  "cd backend && npm ci",
-  "cd ../frontend && npm ci"
+  "cd /app/backend && npm ci",
+  "cd /app/frontend && npm ci"
 ]
 
 [phases.build]
 cmds = [
-  "cd backend && npm run build",
-  "cd ../frontend && npm run build"
+  "cd /app/backend && npm run build",
+  "cd /app/frontend && npm run build"
 ]
 
 [start]
-cmd = "cd backend && npm start"
+cmd = "cd /app/backend && npm start"
